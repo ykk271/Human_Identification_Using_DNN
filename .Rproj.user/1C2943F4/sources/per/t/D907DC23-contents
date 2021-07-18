@@ -1,0 +1,55 @@
+rm(list = ls())
+
+library(keras)
+
+
+mnist <- dataset_mnist()
+train_data    <- mnist$train$x
+train_labels  <- mnist$train$y
+test_data     <- mnist$test$x
+test_labels   <- mnist$test$y
+
+str(train_data)
+str(train_labels)
+
+train_data <- array_reshape(train_data,c(60000,28*28))
+train_data <- train_data/255
+
+str(train_data)
+
+class(test_labels)
+
+
+test_data <- array_reshape(test_data,c(10000,28*28))
+test_data <- test_data/255
+
+train_labels <- to_categorical(train_labels)
+test_labels <- to_categorical(test_labels)
+
+network <- keras_model_sequential() %>% 
+  layer_dense(units = 256, activation = "relu", input_shape = c(28*28)) %>% 
+  layer_dense(10, activation = "softmax")
+
+summary(network)
+
+network %>% 
+  compile(
+    loss = "categorical_crossentropy",
+    optimizer = "adam",
+    metrics = c("accuracy")
+  )
+
+
+network %>% 
+  fit(
+    x = train_data, y = train_labels,
+    epochs = 5,
+    validation_split = 0.3,
+    verbose = 2
+  )
+
+network %>% evaluate(test_data, test_labels)
+
+network %>% predict_classes(test_data[1:10,])
+
+

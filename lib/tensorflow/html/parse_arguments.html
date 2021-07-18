@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Parse Command Line Arguments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for parse_arguments {tensorflow}"><tr><td>parse_arguments {tensorflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Parse Command Line Arguments</h2>
+
+<h3>Description</h3>
+
+<p>Parse command line arguments of the form <code>--key=value</code> and
+<code style="white-space: pre;">--key value</code>. The values are assumed to be valid <code>yaml</code> and
+will be converted using <code><a href="../../yaml/html/yaml.load.html">yaml.load()</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+parse_arguments(arguments = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>arguments</code></td>
+<td>
+<p>A vector of command line arguments. When
+<code>NULL</code> (the default), the command line arguments received
+by the current <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> process are used.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>tensorflow</em> version 2.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

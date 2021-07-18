@@ -1,0 +1,53 @@
+rm(list = ls())
+.libPaths('C:/Users/rladp/OneDrive/바탕 화면/DS FINAL/lib')
+install.packages("keras")
+
+library(keras)
+
+DATA <- read.csv('DATA.csv')
+LABEL <- read.csv('LABEL.csv')
+
+str(DATA)
+class(DATA)
+class(LABEL)
+
+DATA2 <- as.matrix(DATA)
+#DATA2 <- DATA2 - min(DATA)
+DATA2 <- DATA2/max(DATA2)
+
+min(DATA)
+min(DATA2)
+max(DATA2)
+
+LABEL2 <- as.matrix(LABEL)
+
+LABEL2 <- to_categorical(LABEL2)
+
+
+network <- keras_model_sequential() %>% 
+  layer_dense(units = 2048, activation = "relu", input_shape = c(2000*1)) %>% 
+  #layer_dropout(0.5) %>%
+  layer_dense(512, activation = "relu") %>%
+  layer_dropout(0.2) %>%
+  layer_dense(1024, activation = "relu") %>%
+  layer_dropout(0.2) %>%
+  layer_dense(7, activation = "softmax")
+
+
+network %>% 
+  compile(
+    loss = "categorical_crossentropy",
+    optimizer = "adam",
+    metrics = c("accuracy")
+  )
+
+network %>% 
+  fit(
+    x = DATA2, y = LABEL2,
+    epochs = 8,
+    batchsize = 200,
+    validation_split = 0.3,
+    verbose = 2
+  )
+
+

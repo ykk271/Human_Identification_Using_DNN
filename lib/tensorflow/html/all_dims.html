@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: All dims</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for all_dims {tensorflow}"><tr><td>all_dims {tensorflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>All dims</h2>
+
+<h3>Description</h3>
+
+<p>This function returns an object that can be used when subsetting tensors with
+<code>[</code>. If you are familiar with python,, this is equivalent to the python Ellipsis
+<code>...</code>, (not to be confused with <code>...</code> in <code>R</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+all_dims()
+</pre>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+# in python, if x is a numpy array or tensorflow tensor
+x[..., i]
+# the ellipsis means "expand to match number of dimension of x".
+# to translate the above python expression to R, write:
+x[all_dims(), i]
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>tensorflow</em> version 2.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Install TensorFlow and its dependencies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for install_tensorflow {tensorflow}"><tr><td>install_tensorflow {tensorflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Install TensorFlow and its dependencies</h2>
+
+<h3>Description</h3>
+
+<p>Install TensorFlow and its dependencies
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+install_tensorflow(
+  method = c("auto", "virtualenv", "conda"),
+  conda = "auto",
+  version = "default",
+  envname = NULL,
+  extra_packages = NULL,
+  restart_session = TRUE,
+  conda_python_version = "3.7",
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>Installation method. By default, &quot;auto&quot; automatically finds a
+method that will work in the local environment. Change the default to force
+a specific installation method. Note that the &quot;virtualenv&quot; method is not
+available on Windows (as this isn't supported by TensorFlow). Note also
+that since this command runs without privilege the &quot;system&quot; method is
+available only on Windows.</p>
+</td></tr>
+<tr valign="top"><td><code>conda</code></td>
+<td>
+<p>The path to a <code>conda</code> executable. Use <code>"auto"</code> to allow
+<code>reticulate</code> to automatically find an appropriate <code>conda</code> binary. See
+<strong>Finding Conda</strong> for more details.</p>
+</td></tr>
+<tr valign="top"><td><code>version</code></td>
+<td>
+<p>TensorFlow version to install. Up to and including TensorFlow 2.0,
+specify &quot;default&quot; to install the CPU version of the latest release;
+specify &quot;gpu&quot; to install the GPU version of the latest release.
+Starting from TensorFlow 2.1, by default a version is installed that works
+on both GPU- and CPU-only systems. Specify &quot;cpu&quot; to install a CPU-only version.
+</p>
+<p>You can also provide a full major.minor.patch specification (e.g. &quot;1.1.0&quot;),
+appending &quot;-gpu&quot; if you want the GPU version (e.g. &quot;1.1.0-gpu&quot;).
+</p>
+<p>Alternatively, you can provide the full URL to an installer binary (e.g.
+for a nightly binary).</p>
+</td></tr>
+<tr valign="top"><td><code>envname</code></td>
+<td>
+<p>Name of Python environment to install within</p>
+</td></tr>
+<tr valign="top"><td><code>extra_packages</code></td>
+<td>
+<p>Additional Python packages to install along with
+TensorFlow.</p>
+</td></tr>
+<tr valign="top"><td><code>restart_session</code></td>
+<td>
+<p>Restart R session after installing (note this will
+only occur within RStudio).</p>
+</td></tr>
+<tr valign="top"><td><code>conda_python_version</code></td>
+<td>
+<p>the python version installed in the created conda
+environment. Python 3.6 is installed by default.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>other arguments passed to <code><a href="../../reticulate/help/conda-tools.html">reticulate::conda_install()</a></code> or
+<code><a href="../../reticulate/help/virtualenv-tools.html">reticulate::virtualenv_install()</a></code>.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>tensorflow</em> version 2.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

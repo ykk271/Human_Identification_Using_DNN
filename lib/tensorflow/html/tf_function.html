@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Creates a callable TensorFlow graph from an R function.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for tf_function {tensorflow}"><tr><td>tf_function {tensorflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Creates a callable TensorFlow graph from an R function.</h2>
+
+<h3>Description</h3>
+
+<p><code>tf_function</code> constructs a callable that executes a TensorFlow graph created
+by tracing the TensorFlow operations in <code>f</code>. This allows the TensorFlow
+runtime to apply optimizations and exploit parallelism in the computation
+defined by <code>f</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+tf_function(f, input_signature = NULL, autograph = FALSE, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>f</code></td>
+<td>
+<p>the function to be compiled</p>
+</td></tr>
+<tr valign="top"><td><code>input_signature</code></td>
+<td>
+<p>A possibly nested sequence of <code>tf$TensorSpec</code> objects
+specifying the shapes and dtypes of the tensors that will be supplied to
+this function. If <code>NULL</code>, a separate function is instantiated for each
+inferred input signature. If <code>input_signature</code> is specified, every input to
+<code>f</code> must be a tensor.</p>
+</td></tr>
+<tr valign="top"><td><code>autograph</code></td>
+<td>
+<p>Whether autograph should be applied on <code>f</code> before tracing a
+graph. This allows for dynamic control flow (if's, loops etc.) in the
+traced graph. See https://www.tensorflow.org/guide/autograph for more
+information. Note: We set the default to <code>FALSE</code> until this functionality
+is available from R.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional arguments passed on to <code>tf.function</code> (vary based on
+Tensorflow version). See
+https://www.tensorflow.org/api_docs/python/tf/function for details.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>tensorflow</em> version 2.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>
